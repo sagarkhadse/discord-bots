@@ -1,13 +1,11 @@
 import os
-from dotenv import load_dotenv
 import re
 import json
 import requests
 import discord
 
-load_dotenv()
-BOT_TOKEN = os.getenv('BOT_TOKEN')
-TENOR_TOKEN = os.getenv('TENOR_TOKEN')
+BOT_TOKEN = os.environ['WEEBOO_TOKEN']
+TENOR_TOKEN = os.environ['TENOR_TOKEN']
 
 client = discord.Client()
 

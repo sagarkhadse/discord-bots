@@ -1,0 +1,9 @@
+version: '3.3'
+
+services:
+  weeboo:
+    container_name: 'weeboo-bot'
+    restart: always
+    build: .
+    env_file: .env
+    command: python /bots/weeboo/bot.py

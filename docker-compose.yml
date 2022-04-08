@@ -6,4 +6,4 @@ services:
     restart: always
     build: .
     env_file: .env
-    command: python /bots/weeboo/bot.py
+    command: python -u /bots/weeboo/bot.py

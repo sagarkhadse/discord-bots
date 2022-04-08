@@ -26,11 +26,17 @@ async def on_ready():
 async def on_message(message):
   if message.author == client.user:
     return
-  if message.content.startswith('$') and len(message.content) > 1:
-    match = re.match('\$(\w+)\s*(.*)', message.content)
-    command = match.group(1)
-    gif = get_gif("anime " + command)
-    if gif:
-      await message.channel.send(gif)
+
+  match = re.match('\(.)(\w+)\s*(.*)', message.content)
+  if match:
+    pfx, cmd, arg = match.group(1, 2, 3)
+    if pfx == '$':
+      gif = get_gif(" ".join("anime", cmd, arg))
+      if gif:
+        await message.channel.send(gif)
+    elif pfx == '&':
+      gif = get_gif(" ".join(cmd, arg))
+      if gif:
+        await message.channel.send(gif)
 
 client.run(BOT_TOKEN)

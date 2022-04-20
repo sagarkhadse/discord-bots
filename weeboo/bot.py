@@ -3,6 +3,7 @@ import re
 import json
 import requests
 import discord
+import random
 
 BOT_TOKEN = os.environ['WEEBOO_TOKEN']
 TENOR_TOKEN = os.environ['TENOR_TOKEN']
@@ -11,11 +12,12 @@ client = discord.Client()
 
 def get_gif(query):
   r = requests.get(
-    "https://g.tenor.com/v1/random?q=%s&key=%s&limit=1" % (query, TENOR_TOKEN))
-
+    "https://g.tenor.com/v1/seatch?q=%s&media_filter=minimal&key=%s&limit=10" 
+    % (query, TENOR_TOKEN)
+  )
   if r.status_code == 200:
     res = json.loads(r.content)
-    return res['results'][0]['media'][0]['gif']['url']
+    return random.choice(res['results'][0]['media'])['gif']['url']
   return None
 
 @client.event

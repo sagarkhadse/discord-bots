@@ -12,12 +12,12 @@ client = discord.Client()
 
 def get_gif(query):
   r = requests.get(
-    "https://g.tenor.com/v1/seatch?q=%s&media_filter=minimal&key=%s&limit=10" 
+    "https://tenor.googleapis.com/v2/search?q=%s&key=%s&client_key=discord&limit=10" 
     % (query, TENOR_TOKEN)
   )
   if r.status_code == 200:
     res = json.loads(r.content)
-    return random.choice(res['results'][0]['media'])['gif']['url']
+    return random.choice(res['results'])['media_formats']['tinygif']['url']
   return None
 
 @client.event

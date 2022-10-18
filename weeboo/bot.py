@@ -8,7 +8,10 @@ import random
 BOT_TOKEN = os.environ.get('WEEBOO_TOKEN')
 TENOR_TOKEN = os.environ.get('TENOR_TOKEN')
 
-client = discord.Client()
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = discord.Client(intents=intents)
 
 def get_gif(query):
   r = requests.get(

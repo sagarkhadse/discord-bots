@@ -5,5 +5,4 @@ services:
     container_name: 'weeboo-bot'
     restart: always
     build: .
-    env_file: .env
     command: python -u /bots/weeboo/bot.py

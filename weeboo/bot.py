@@ -5,8 +5,8 @@ import requests
 import discord
 import random
 
-BOT_TOKEN = os.environ['WEEBOO_TOKEN']
-TENOR_TOKEN = os.environ['TENOR_TOKEN']
+BOT_TOKEN = os.environ.get('WEEBOO_TOKEN')
+TENOR_TOKEN = os.environ.get('TENOR_TOKEN')
 
 client = discord.Client()
 

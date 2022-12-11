@@ -7,3 +7,10 @@ services:
     build: .
     env_file: stack.env
     command: python -u /bots/weeboo/bot.py
+  listy:
+    container_name: 'listy-bot'
+    restart: always
+    build: .
+    env_file: stack.env
+    command: python -u /bots/listy/bot.py
+

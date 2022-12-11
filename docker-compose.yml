@@ -11,6 +11,8 @@ services:
     container_name: 'listy-bot'
     restart: always
     build: .
+    volumes:
+      - /home/sagarkhadse/discord-bots/listy/data:/bots/listy/data
     env_file: stack.env
     command: python -u /bots/listy/bot.py
 
